@@ -13,15 +13,16 @@ return {
         end,
     },
 
-    -- {
-    -- 	"nvim-treesitter/nvim-treesitter",
-    -- 	opts = {
-    -- 		ensure_installed = {
-    -- 			"vim", "lua", "vimdoc",
-    --      "html", "css"
-    -- 		},
-    -- 	},
-    -- },
+    {
+    	"nvim-treesitter/nvim-treesitter",
+    	opts = {
+    		ensure_installed = {
+    			"vim", "lua", "vimdoc",
+          "html", "css", "zig",
+          "rust", "toml", "json",
+    		},
+    	},
+    },
     {
         "williamboman/mason.nvim"
     },
@@ -52,13 +53,13 @@ return {
     },
     { "nvzone/timerly",       cmd = "TimerlyToggle" },
 
-    -- {
-    --     "supermaven-inc/supermaven-nvim",
-    --     lazy = false,
-    --     config = function()
-    --         require("supermaven-nvim").setup({})
-    --     end,
-    -- },
+    {
+        "supermaven-inc/supermaven-nvim",
+        lazy = false,
+        config = function()
+            require("supermaven-nvim").setup({})
+        end,
+    },
 
     {
         "rmagatti/auto-session",
@@ -98,5 +99,16 @@ return {
         config = function()
             require("octo").setup()
         end,
+    },
+
+    -- {
+      -- "sphamba/smear-cursor.nvim",
+      -- lazy = false,
+      -- opts = {}
+    -- },
+
+    {
+      "wakatime/vim-wakatime",
+      lazy = false,
     }
 }
