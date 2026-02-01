@@ -10,7 +10,8 @@
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
-      "ctrl-t": "terminal_panel::ToggleFocus",
+      // "ctrl-t": "terminal_panel::ToggleFocus",
+      "ctrl-n": "workspace::ToggleRightDock",
       // "shift-ctrl-e": "project_panel::ToggleFocus",
       "ctrl-e": "project_panel::ToggleFocus",
       "alt-z": ["app_menu::OpenApplicationMenu", "Zed"],
@@ -20,7 +21,7 @@
       "alt-v": ["app_menu::OpenApplicationMenu", "View"],
       "alt-g": ["app_menu::OpenApplicationMenu", "Go"],
       "alt-w": ["app_menu::OpenApplicationMenu", "Window"],
-      "alt-h": ["app_menu::OpenApplicationMenu", "Help"]
+      "alt-h": "terminal_panel::ToggleFocus"
     }
   },
   {
@@ -32,8 +33,44 @@
   {
     "context": "Terminal",
     "bindings": {
+      "alt-h": "workspace::ToggleBottomDock",
       "ctrl-t": "workspace::ToggleBottomDock",
-      "ctrl-n": "workspace::NewTerminal"
+      "ctrl-n": "workspace::NewTerminal",
+      "ctrl-w k": "editor::ToggleFocus"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space": "command_palette::Toggle", // leader key
+      "space e": "project_panel::ToggleFocus",
+      "alt-h": "terminal_panel::ToggleFocus",
+      "space x": "pane::CloseActiveItem",
+      ";": "command_palette::Toggle",
+      "tab": "tab_switcher::ToggleAll",
+      "shift-tab": "tab_switcher::ToggleAll"
+    }
+  },
+  {
+    "context": "(VimControl && VimCount)",
+    "bindings": {
+      ";": "vim::CountCommand",
+      "tab": "tab_switcher::ToggleAll",
+      "shift-tab": "tab_switcher::ToggleAll"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      ";": "vim::VisualCommand",
+      "tab": "tab_switcher::ToggleAll",
+      "shift-tab": "tab_switcher::ToggleAll"
+    }
+  },
+  {
+    "context": "!Editor",
+    "bindings": {
+      "ctrl-n": "workspace::ToggleRightDock"
     }
   }
 ]

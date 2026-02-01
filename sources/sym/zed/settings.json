@@ -9,7 +9,7 @@
 {
   "edit_predictions": {
     "disabled_globs": [".env"],
-    "mode": "eager",
+    "mode": "subtle",
     "copilot": {
       "proxy": null,
       "proxy_no_verify": null
@@ -26,16 +26,15 @@
       "model": "claude-sonnet-4"
     },
     "always_allow_tool_actions": true,
-    "version": "2",
-    "default_profile": "write",
+    "default_profile": "minimal",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4"
+      "provider": "copilot_chat",
+      "model": "claude-opus-4.5"
     },
     "dock": "right"
   },
   // "minimap": { "show": "auto" },
-  "max_tabs": 6,
+  "max_tabs": 8,
   "features": {
     "edit_prediction_provider": "zed"
   },
@@ -45,7 +44,12 @@
     "toggle_relative_line_numbers": true,
     "highlight_on_yank_duration": 750,
     "use_system_clipboard": "always",
-    "use_multiline_find": true
+    "cursor_shape": {
+      "normal": "block",
+      "insert": "underline",
+      "visual": "hollow",
+      "replace": "underline"
+    }
   },
   "git_panel": {
     "dock": "bottom"
@@ -61,8 +65,12 @@
     }
   },
   "ui_font_size": 16,
-  "buffer_font_family": "Zed Plex Mono",
+  "buffer_font_family": "Lilex",
   "buffer_font_size": 14.0,
+  "soft_wrap": "editor_width",
+  "title_bar": {
+    "show_branch_icon": true
+  },
   "slash_commands": {
     "cargo_workspace": {
       "enabled": false
@@ -71,16 +79,20 @@
   "theme": {
     "mode": "system",
     "light": "Gruvbox ish Dark Medium",
-    "dark": "Gruvbox ish Dark Medium"
+    "dark": "Gruvchad"
   },
   "vim_mode": true,
+  "inlay_hints": {
+    "enabled": true
+  },
   "ui_font_features": {},
+  "buffer_font_features": {},
   "terminal": {
     "shell": {
       "program": "fish"
     },
     "font_size": 14,
-    "font_family": "SpaceMono Nerd Font Propo",
+    "font_family": "Lilex",
     "cursor_shape": "underline",
     "blinking": "on",
     "alternate_scroll": "on",
@@ -89,7 +101,8 @@
   "project_panel": {
     "dock": "right",
     "entry_spacing": "standard",
-    "indent_size": 16
+    "indent_size": 16,
+    "hide_gitignore": true
     // "scrollbar": {
     // "show": "never"
     // }
@@ -105,12 +118,9 @@
   },
   "formatter": "auto",
   "languages": {
-    "env": {
-      "show_edit_predictions": false
-    },
     "Markdown": {
       "tab_size": 2,
-      "formatter": "prettier"
+      "formatter": null
     },
     "TOML": {
       "formatter": "prettier",
