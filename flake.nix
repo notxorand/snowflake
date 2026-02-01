@@ -1,7 +1,6 @@
  {
   description = "Nixos config flake";
   inputs = {
-    figma-patched.url = "github:ilsubyeega/nixpkgs/figma-agent";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -20,10 +19,14 @@
       url = "github:ignis-sh/ignis";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zig-overlay = {
+      url = "github:mitchellh/zig-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 
-  outputs = { self, nixpkgs, home-manager, quickshell, ignis, ... }@inputs: let
+  outputs = { self, nixpkgs, home-manager, quickshell, ignis, zig-overlay, ... }@inputs: let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
     pkgs = import nixpkgs {
@@ -56,14 +59,6 @@
               users.ewan = import ./home.nix;
             };
           }
-          ({ config, pkgs, ... }: {
-            nixpkgs.overlays = [
-              ignis.overlays.default
-              (final: prev: {
-                figma-agent = inputs.figma-patched.legacyPackages.${pkgs.system}.figma-agent;
-              })
-            ];
-          })
         ];
       };
       devShells.${system} = {

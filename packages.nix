@@ -1,5 +1,12 @@
-{ pkgs, inputs, system, ... }:
-with pkgs; with inputs; [
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
+with pkgs;
+with inputs;
+[
   wget
   zed-editor
   ntfs3g
@@ -12,7 +19,6 @@ with pkgs; with inputs; [
   gummi
   rustup
   go
-  azure-cli
   fishMinimal
   localsend
   telegram-desktop
@@ -44,7 +50,6 @@ with pkgs; with inputs; [
   pnpm
   texliveTeTeX
   nasm
-  zig
   gcc15
   glibc
   glibc.dev
@@ -100,7 +105,12 @@ with pkgs; with inputs; [
   libnotify
   dart-sass
   material-symbols
-  (pkgs.ignis.override {
+  (ignis.packages.${pkgs.system}.default.override {
+    enableAudioService = true;
+    enableNetworkService = true;
+    enableRecorderService = true;
+    enableBluetoothService = true;
+    useDartSass = true;
     extraPackages = [
       python313Packages.psutil
       python313Packages.jinja2
@@ -108,7 +118,8 @@ with pkgs; with inputs; [
       python313Packages.materialyoucolor
     ];
   })
-  pkgs.ignis
+  ignis
+  zig-overlay.packages.${system}.default
   wayland-pipewire-idle-inhibit
   aseprite
   alsa-lib.dev
@@ -119,4 +130,33 @@ with pkgs; with inputs; [
   tcpdump
   qemu
   nushell
+  b3sum
+  opencode
+  wabt
+  helix
+  wakatime
+  vimPlugins.avante-nvim
+  SDL2
+  SDL2_ttf
+  SDL2_image
+  SDL2_mixer
+  SDL2_gfx
+  SDL2_net
+  SDL2_Pango
+  tmux
+  lilex
+  nixd
+  nil
+  discord
+  inkscape
+  ghidra-bin
+  tiled
+  ladybird
+  love
+  natscli
+  nats-server
+  just
+  buffrs
+  ripgrep
+  lldb
 ]

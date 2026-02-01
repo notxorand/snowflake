@@ -1,10 +1,16 @@
-{ config, pkgs, inputs, system, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  system,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -13,7 +19,10 @@
 
   networking.hostName = "nixos";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   documentation.enable = false;
   documentation.nixos.enable = false;
 
@@ -62,6 +71,13 @@
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  security.pam.services.login.fprintAuth = lib.mkForce true;
+  security.pam.services.sudo.fprintAuth = true;
+  security.pam.services.gdm-password.fprintAuth = true;
+  security.pam.services.polkit-1.fprintAuth = true;
+  security.pam.services.hyprlock = {
+    fprintAuth = lib.mkForce true;
+  };
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -76,13 +92,18 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.hack
     nerd-fonts.inconsolata
+    nerd-fonts.zed-mono
   ];
 
   users.users.ewan = {
     isNormalUser = true;
     description = "ewan";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     packages = with pkgs; [
     ];
   };
@@ -98,8 +119,14 @@
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
 
-  systemd.packages = [ pkgs.cloudflare-warp pkgs.wayland-pipewire-idle-inhibit ];
-  systemd.targets.multi-user.wants = [ "warp-svc.service" "wayland-pipewire-idle-inhibit.service" ];
+  systemd.packages = [
+    pkgs.cloudflare-warp
+    pkgs.wayland-pipewire-idle-inhibit
+  ];
+  systemd.targets.multi-user.wants = [
+    "warp-svc.service"
+    "wayland-pipewire-idle-inhibit.service"
+  ];
   services.cloudflare-warp.enable = true;
   systemd.user.services.warp-taskbar.wantedBy = [ "graphical.target" ];
 
@@ -120,15 +147,23 @@
     LIBCLANG_PATH = "${pkgs.llvmPackages.libclang.lib}/lib";
     CLANG_PATH = "${pkgs.llvmPackages.clang}/bin/clang";
     BINDGEN_EXTRA_CLANG_ARGS = "--target=x86_64 -isystem ${pkgs.glibc.dev}/include";
-    QML2_IMPORT_PATH = with pkgs; lib.concatStringsSep ":" [
-      "${libsForQt5.qt5.qtgraphicaleffects}/lib/qt-5/qml"
-      "${kdePackages.qt5compat}/lib/qt-6/qml"
-      "${kdePackages.qtbase}/lib/qt-6/qml"
-      "${kdePackages.qtdeclarative}/lib/qt-6/qml"
-    ];
+    QML2_IMPORT_PATH =
+      with pkgs;
+      lib.concatStringsSep ":" [
+        "${libsForQt5.qt5.qtgraphicaleffects}/lib/qt-5/qml"
+        "${kdePackages.qt5compat}/lib/qt-6/qml"
+        "${kdePackages.qtbase}/lib/qt-6/qml"
+        "${kdePackages.qtdeclarative}/lib/qt-6/qml"
+      ];
   };
 
-  environment.systemPackages = with pkgs; import ./packages.nix { inherit pkgs; inherit inputs; inherit system; };
+  environment.systemPackages =
+    with pkgs;
+    import ./packages.nix {
+      inherit pkgs;
+      inherit inputs;
+      inherit system;
+    };
 
   services.openssh.enable = true;
 
