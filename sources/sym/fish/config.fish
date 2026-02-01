@@ -119,3 +119,5 @@ set fish_cursor_replace_one underscore
 set fish_cursor_replace underscore
 set fish_cursor_external linefish_cursor_visual block
 set fish_cursor_visual block
+
+set -gx AZURE_RESOURCE_NAME mesa-2077
