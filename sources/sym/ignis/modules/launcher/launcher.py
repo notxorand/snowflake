@@ -208,8 +208,8 @@ class Launcher(widgets.Window):
             return
 
         apps = applications.search(applications.apps, query)
-        if apps == []:
-            self._app_list.child = [SearchWebButton(query)]
-        else:
+        if apps != []:
             self._app_list.visible = True
             self._app_list.child = [LauncherAppItem(i) for i in apps[:5]]
+        # else:
+        #     self._app_list.child = [SearchWebButton(query)]

@@ -19,6 +19,7 @@ css_manager.apply_css(
     CssInfoPath(
         name="main",
         compiler_function=lambda path: utils.sass_compile(path=path),
+        priority="user",
         path=os.path.join(utils.get_current_dir(), "style.scss"),
     )
 )
