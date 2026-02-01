@@ -1,5 +1,5 @@
 # fonts
-font-family = SpaceMono Nerd Font Propo
+font-family = Lilex
 font-size = 11
 
 # theme
@@ -8,8 +8,7 @@ cursor-style-blink = true
 cursor-click-to-move = true
 cursor-invert-fg-bg = true
 adjust-underline-thickness = 1
-background = #282828
-theme = GruvboxDark
+background = #1e2122
 
 # mouse
 mouse-hide-while-typing = true
@@ -26,7 +25,6 @@ gtk-tabs-location = bottom
 gtk-wide-tabs = true
 
 # keybindings
-keybind = ctrl+w=close_window
 keybind = ctrl+q=quit
 keybind = ctrl+t=toggle_tab_overview
 keybind = ctrl+alt+t=new_split:auto
@@ -38,3 +36,4 @@ keybind = ctrl+m=toggle_split_zoom
 
 # other
 shell-integration-features = no-cursor,sudo,title
+custom-shader = ./shaders/cursor_trail.glsl
