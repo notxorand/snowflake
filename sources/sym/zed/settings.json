@@ -7,52 +7,102 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "cursor": {
+      "type": "registry",
+    },
+    "github-copilot": {
+      "type": "registry",
+    },
+  },
+  "context_servers": {
+    "some-mcp-server": {
+      "enabled": true,
+      "remote": false,
+      "command": "codex",
+      "args": [],
+      "env": {},
+    },
+  },
+  "git": {
+    "inline_blame": {
+      "show_commit_summary": true,
+    },
+  },
   "edit_predictions": {
+    "sweep": {
+      "privacy_mode": true,
+    },
+    "provider": "zed",
     "disabled_globs": [".env"],
     "mode": "subtle",
     "copilot": {
       "proxy": null,
-      "proxy_no_verify": null
+      "proxy_no_verify": null,
     },
-    "enabled_in_text_threads": false
+    "enabled_in_text_threads": false,
   },
   "auto_update_extensions": {
-    "charmed-icons": false
+    "charmed-icons": false,
   },
   "icon_theme": "Soft Charmed Icons",
   "agent": {
+    "favorite_models": [
+      {
+        "provider": "zed.dev",
+        "model": "gpt-5.3-codex",
+        "enable_thinking": false,
+      },
+      {
+        "provider": "zed.dev",
+        "model": "claude-sonnet-4-6",
+        "enable_thinking": false,
+      },
+      {
+        "provider": "copilot_chat",
+        "model": "gpt-5.3-codex",
+        "enable_thinking": false,
+      },
+    ],
+    "tool_permissions": {
+      "default": "allow",
+    },
     "inline_assistant_model": {
       "provider": "zed.dev",
-      "model": "claude-sonnet-4"
+      "model": "claude-sonnet-4",
     },
-    "always_allow_tool_actions": true,
-    "default_profile": "minimal",
+    "default_profile": "write",
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-opus-4.5"
+      "effort": "high",
+      "enable_thinking": true,
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-6",
     },
-    "dock": "right"
+    "dock": "right",
+    "button": false,
+  },
+  "outline_panel": {
+    "button": false,
   },
   // "minimap": { "show": "auto" },
   "max_tabs": 8,
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
   "cursor_shape": "underline",
   "cursor_blink": true,
   "vim": {
     "toggle_relative_line_numbers": true,
+    "use_smartcase_find": true,
     "highlight_on_yank_duration": 750,
     "use_system_clipboard": "always",
     "cursor_shape": {
       "normal": "block",
       "insert": "underline",
       "visual": "hollow",
-      "replace": "underline"
-    }
+      "replace": "underline",
+    },
   },
   "git_panel": {
-    "dock": "bottom"
+    "dock": "bottom",
+    "button": false,
   },
   "diagnostics": {
     "include_warnings": true,
@@ -61,113 +111,166 @@
       "update_debounce_ms": 150,
       "padding": 4,
       "min_column": 0,
-      "max_severity": null
-    }
+      "max_severity": null,
+    },
   },
   "ui_font_size": 16,
   "buffer_font_family": "Lilex",
   "buffer_font_size": 14.0,
   "soft_wrap": "editor_width",
   "title_bar": {
-    "show_branch_icon": true
+    "show_branch_icon": true,
+    "show_onboarding_banner": false,
+    "show_menus": false,
+    "show_project_items": false,
+  },
+  "tab_bar": {
+    "show": false,
   },
   "slash_commands": {
     "cargo_workspace": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "theme": {
-    "mode": "system",
-    "light": "Gruvbox ish Dark Medium",
-    "dark": "Gruvchad"
+    "mode": "dark",
+    "light": "Kanagawa Lotus",
+    "dark": "Gruvchad",
+  },
+  "theme_overrides": {
+    "Gruvchad": {
+      "panel.background": "#1e2122",
+      "border.variant": "#1e2122",
+      "border": "#1e2122",
+      "border.focused": "#2c2f30",
+      "border.selected": "#2c2f30",
+      "border.transparent": "#1e2122",
+      "border.disabled": "#1e2122",
+      "pane.focused_border": "#cc7f94",
+      "panel.focused_border": "#cc7f94",
+      "syntax": {
+        "comment": {
+          "font_style": "italic",
+        },
+        "comment.doc": {
+          "font_style": "italic",
+        },
+        "keyword": {
+          "font_style": "italic",
+        },
+      },
+    },
+  },
+  "file_finder": {
+    "modal_max_width": "xlarge",
+  },
+  "gutter": {
+    "folds": false,
+    "breakpoints": false,
   },
   "vim_mode": true,
+  "collaboration_panel": {
+    "dock": "right",
+  },
   "inlay_hints": {
-    "enabled": true
+    "enabled": true,
+    "edit_debounce_ms": 1000,
   },
   "ui_font_features": {},
   "buffer_font_features": {},
   "terminal": {
     "shell": {
-      "program": "fish"
+      "program": "fish",
     },
     "font_size": 14,
     "font_family": "Lilex",
     "cursor_shape": "underline",
     "blinking": "on",
     "alternate_scroll": "on",
-    "dock": "bottom"
+    "dock": "bottom",
+    "button": false,
   },
   "project_panel": {
+    "default_width": 300,
     "dock": "right",
     "entry_spacing": "standard",
     "indent_size": 16,
-    "hide_gitignore": true
-    // "scrollbar": {
-    // "show": "never"
-    // }
+    "hide_gitignore": true,
+    "hide_root": true,
+    "button": false,
+    "scrollbar": {
+      "show": "never",
+    },
+    "indent_guides": {
+      "show": "never",
+    },
+  },
+  "scrollbar": {
+    "show": "never",
   },
   "toolbar": {
     "selections_menu": false,
-    "breadcrumbs": false,
-    "quick_actions": false
+    // "breadcrumbs": false,
+    "quick_actions": false,
   },
   "telemetry": {
     "metrics": false,
-    "diagnostics": true
+    "diagnostics": true,
+  },
+  "status_bar": {
+    "experimental.show": false,
   },
   "formatter": "auto",
   "languages": {
     "Markdown": {
       "tab_size": 2,
-      "formatter": null
+      "formatter": null,
     },
     "TOML": {
       "formatter": "prettier",
-      "format_on_save": "off"
+      "format_on_save": "off",
     },
     "YAML": {
       "tab_size": 2,
-      "formatter": "prettier"
+      "formatter": "prettier",
     },
     "JSON": {
       "tab_size": 2,
       "preferred_line_length": 100,
-      "formatter": "prettier"
+      "formatter": "prettier",
     },
     "JSONC": {
       "tab_size": 2,
       "preferred_line_length": 100,
-      "formatter": "prettier"
+      "formatter": "prettier",
     },
     "JavaScript": {
       "tab_size": 2,
-      "formatter": "prettier"
+      "formatter": "prettier",
     },
     "CSS": {
       "tab_size": 2,
-      "formatter": "prettier"
+      "formatter": "prettier",
     },
     "Rust": {
       "tab_size": 2,
-      "formatter": "auto"
+      "formatter": "auto",
     },
     "Markdown-Inline": {
       "tab_size": 2,
-      "formatter": "prettier"
-    }
+      "formatter": "prettier",
+    },
   },
   "lsp": {
     "rust-analyzer": {
       "binary": {
         "path": "/run/current-system/sw/bin/rust-analyzer",
-        "path_lookup": true
       },
       "initialization_options": {
         "check": {
-          "command": "clippy"
-        }
-      }
-    }
-  }
+          "command": "clippy",
+        },
+      },
+    },
+  },
 }

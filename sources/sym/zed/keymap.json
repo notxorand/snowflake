@@ -21,56 +21,68 @@
       "alt-v": ["app_menu::OpenApplicationMenu", "View"],
       "alt-g": ["app_menu::OpenApplicationMenu", "Go"],
       "alt-w": ["app_menu::OpenApplicationMenu", "Window"],
-      "alt-h": "terminal_panel::ToggleFocus"
-    }
+      "alt-h": "terminal_panel::Toggle",
+    },
   },
   {
     "context": "Editor",
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
-    }
+    },
   },
   {
     "context": "Terminal",
     "bindings": {
       "alt-h": "workspace::ToggleBottomDock",
-      "ctrl-t": "workspace::ToggleBottomDock",
-      "ctrl-n": "workspace::NewTerminal",
-      "ctrl-w k": "editor::ToggleFocus"
-    }
+      "ctrl-t": "workspace::NewTerminal",
+      "ctrl-w k": "editor::ToggleFocus",
+    },
   },
   {
     "context": "vim_mode == normal",
     "bindings": {
       "space": "command_palette::Toggle", // leader key
       "space e": "project_panel::ToggleFocus",
-      "alt-h": "terminal_panel::ToggleFocus",
+      "space /": "editor::ToggleComments",
       "space x": "pane::CloseActiveItem",
+      "space b": "workspace::NewFile",
+      "space f a": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
+      "space g t": "git_panel::Toggle",
+      "g c": "editor::ToggleComments",
+      "alt-h": "terminal_panel::Toggle",
       ";": "command_palette::Toggle",
       "tab": "tab_switcher::ToggleAll",
-      "shift-tab": "tab_switcher::ToggleAll"
-    }
+      "shift-tab": "tab_switcher::ToggleAll",
+    },
   },
   {
     "context": "(VimControl && VimCount)",
     "bindings": {
       ";": "vim::CountCommand",
       "tab": "tab_switcher::ToggleAll",
-      "shift-tab": "tab_switcher::ToggleAll"
-    }
+      "shift-tab": "tab_switcher::ToggleAll",
+    },
   },
   {
     "context": "vim_mode == visual",
     "bindings": {
       ";": "vim::VisualCommand",
       "tab": "tab_switcher::ToggleAll",
-      "shift-tab": "tab_switcher::ToggleAll"
-    }
+      "shift-tab": "tab_switcher::ToggleAll",
+    },
   },
   {
     "context": "!Editor",
     "bindings": {
-      "ctrl-n": "workspace::ToggleRightDock"
-    }
-  }
+      "ctrl-n": "workspace::ToggleRightDock",
+    },
+  },
+  {
+    "context": "(!Editor && !Terminal)",
+    "bindings": {
+      "space": "command_palette::Toggle", // leader key
+      "space x": "pane::CloseActiveItem",
+    },
+  },
 ]
