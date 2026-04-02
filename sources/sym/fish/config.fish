@@ -18,8 +18,8 @@ if test -f ~/.cache/ags/user/generated/terminal/sequences.txt
 end
 
 set -gx ANDROID_HOME $HOME/Android/Sdk
-set -gx EDITOR nvim
-set -gx BROWSER zen-browser
+set -gx EDITOR hx
+set -gx BROWSER zen-beta
 set -gx TERM ghostty
 
 alias pamcan=pacman
@@ -61,18 +61,14 @@ alias files="cd ~/Documents/files"
 alias xx="exit"
 
 alias .rust="cd ~/Documents/rust"
+alias .rs=".rust"
+alias .zig="cd ~/Documents/zig"
 alias .go="cd ~/Documents/go"
 alias .ts="cd ~/Documents/ts"
-alias .gleam="cd ~/Documents/gleam"
-alias .odin="cd ~/Documents/odin"
-alias .kotlin="cd ~/Documents/kotlin"
-alias .v="cd ~/Documents/v"
 
 alias ..rust="cargo watch -x run"
 alias ..rs="..rust"
 alias ..go="go run ."
-alias ..odin="odin run ."
-alias ..od="..odin"
 alias mk="make"
 alias super="chmod +wx"
 alias emulator="QT_QPA_PLATFORM=xcb ~/Android/Sdk/emulator/emulator"
@@ -120,4 +116,5 @@ set fish_cursor_replace underscore
 set fish_cursor_external linefish_cursor_visual block
 set fish_cursor_visual block
 
+set -gx PATH $PATH $HOME/go/bin
 set -gx AZURE_RESOURCE_NAME mesa-2077
