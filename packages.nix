@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-latest,
   inputs,
   system,
   ...
@@ -8,13 +9,19 @@ with pkgs;
 with inputs;
 [
   wget
-  zed-editor
+  pkgs-latest.zed-editor
+  pkgs-latest.ghostty
+  pkgs-latest.zls
+  pkgs-latest.cider
+  pkgs-latest.wrangler
+  postgresql
+  cloudflare-warp
+  wasmtime
   ntfs3g
   git
   eza
   bat
   neovim
-  cloudflare-warp
   wayland-pipewire-idle-inhibit
   gummi
   rustup
@@ -26,7 +33,6 @@ with inputs;
   httpie
   rquickshare
   spotify
-  ghostty
   gh
   fastfetchMinimal
   swww
@@ -70,7 +76,6 @@ with inputs;
   figma-agent
   vlc
   rustls-libssl
-  zls
   yazi
   stow
   jujutsu

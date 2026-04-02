@@ -3,6 +3,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixpkgs-latest.url = "github:nixos/nixpkgs/master";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,15 +28,19 @@
   };
 
 
-  outputs = { self, nixpkgs, home-manager, quickshell, ignis, zig-overlay, ... }@inputs: let
+  outputs = { self, nixpkgs, nixpkgs-latest, home-manager, quickshell, ignis, zig-overlay, ... }@inputs: let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
-    extraSpecialArgs = { inherit system inputs; };
-    specialArgs = { inherit system inputs; };
+    pkgs-latest = import nixpkgs-latest {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    extraSpecialArgs = { inherit system inputs pkgs-latest; };
+    specialArgs = { inherit system inputs pkgs-latest; };
     in {
       nixosConfigurations.nixos = lib.nixosSystem {
         inherit specialArgs;

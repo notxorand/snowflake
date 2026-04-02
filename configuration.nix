@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-latest,
   lib,
   inputs,
   system,
@@ -159,10 +160,12 @@
 
   environment.systemPackages =
     with pkgs;
+    with pkgs-latest;
     import ./packages.nix {
       inherit pkgs;
       inherit inputs;
       inherit system;
+      inherit pkgs-latest;
     };
 
   services.openssh.enable = true;
