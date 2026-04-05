@@ -15,46 +15,14 @@
 
   services.swayidle =
     let
-      lock = "${pkgs.hyprlock}/bin/hyprlock --no-fade-in";
       display = status: "${pkgs.niri}/bin/niri msg action power-${status}-monitors";
     in
     {
       enable = true;
       timeouts = [
         {
-          timeout = 1785;
-          command = "${pkgs.libnotify}/bin/notify-send 'Locking in 5 seconds' -t 5000";
-        }
-        {
-          timeout = 1800;
-          command = lock;
-        }
-        {
-          timeout = 300;
-          command = display "off";
-          resumeCommand = display "on";
-        }
-        {
-          timeout = 2700;
-          command = "${pkgs.systemd}/bin/systemctl suspend";
-        }
-      ];
-      events = [
-        {
-          event = "before-sleep";
-          command = (display "off") + "; " + lock;
-        }
-        {
-          event = "after-resume";
-          command = display "on";
-        }
-        {
-          event = "lock";
-          command = (display "off") + "; " + lock;
-        }
-        {
-          event = "unlock";
-          command = display "on";
+          timeout = 895;
+          command = "${pkgs.libnotify}/bin/notify-send 'Locking in 10 seconds' -t 10000";
         }
       ];
     };
@@ -83,6 +51,13 @@
     gtk.enable = true;
     x11.enable = true;
     package = pkgs.bibata-cursors;
+  };
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "WhiteSur-Dark";
+      package = pkgs.whitesur-icon-theme;
+    };
   };
 
   home.sessionVariables = {

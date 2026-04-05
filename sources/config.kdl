@@ -104,7 +104,7 @@ cursor {
 
 
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "ignis" "init"
+spawn-at-startup "dms" "run"
 spawn-at-startup "easyeffects" "--gapplication-service"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
@@ -156,18 +156,19 @@ binds {
 
     Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+D hotkey-overlay-title="Launcher: fuzzel" { spawn "fuzzel"; }
-    Mod+Space hotkey-overlay-title="Launcher: ignis" { spawn "ignis" "toggle-window" "ignis_LAUNCHER"; }
-    Mod+N hotkey-overlay-title="Control Centre: ignis" { spawn "ignis" "toggle-window" "ignis_CONTROL_CENTER"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
+    Mod+Space hotkey-overlay-title="Launcher: dank" { spawn "dms" "ipc" "launcher" "toggle"; }
+    Mod+N hotkey-overlay-title="Note pad: dank" { spawn "dms" "ipc" "notepad" "open"; }
+    Mod+Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: dank" { spawn "dms" "ipc" "lock" "lock"; }
     Mod+W hotkey-overlay-title="Open a Web Browser: zen" { spawn "zen"; }
     Mod+Z hotkey-overlay-title="Open a Code Editor: zed" { spawn "zeditor"; }
     Mod+E hotkey-overlay-title="Open a File Manager: nautilus" { spawn "nautilus" "--new-window"; }
-    Mod+X hotkey-overlay-title="Open a Text Editor: nautilus" { spawn "gnome-text-editor" "--new-window"; }
+    Mod+X hotkey-overlay-title="Open a Text Editor: gnome text editor" { spawn "gnome-text-editor" "--new-window"; }
     Mod+Alt+Z hotkey-overlay-title="Open a Code Editor: nvim" { spawn "fish" "-c" "exec ghostty -e nvim"; }
     Mod+Alt+E hotkey-overlay-title="Open a File Manager: yazi" { spawn "fish" "-c" "exec ghostty -e yazi"; }
     Ctrl+Shift+Escape { spawn "gnome-system-monitor"; }
-    Mod+Ctrl+Escape { spawn "fish" "-c" "exec env XDG_CURRENT_DESKTOP=GNOME XDG_SESSION_DESKTOP=gnome gnome-control-center"; }
-    Mod+V { spawn "fish" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu | cliphist decode | wl-copy"; }
+    Mod+Ctrl+Escape { spawn "dms" "ipc" "settings" "open"; }
+    Mod+Escape { spawn "dms" "ipc" "powermenu" "toggle"; }
+    Mod+V { spawn "dms" "ipc" "clipboard" "toggle"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
@@ -301,7 +302,7 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    // Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }

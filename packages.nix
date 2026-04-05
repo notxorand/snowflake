@@ -13,7 +13,8 @@ with inputs;
   pkgs-latest.ghostty
   pkgs-latest.zls
   pkgs-latest.cider
-  pkgs-latest.wrangler
+  pkgs-latest.dms-shell
+  extundelete
   postgresql
   cloudflare-warp
   wasmtime
