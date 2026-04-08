@@ -1,0 +1,109 @@
+{
+  "id": "gruvboxDark",
+  "name": "Gruvbox Dark",
+  "version": "1.0.0",
+  "author": "ewan",
+  "description": "Gruvbox Dark theme derived from GTK 4 palette with strict semantic mapping",
+  "dark": {
+    "primary": "#7daea3",
+    "primaryContainer": "#3b4439",
+    "secondary": "#d8a657",
+    "surfaceText": "#fbf1c7",
+    "surfaceVariantText": "#d4be98",
+    "backgroundText": "#fbf1c7",
+    "outline": "#a89984",
+    "error": "#c14a4a",
+    "warning": "#b47109",
+    "info": "#7daea3"
+  },
+  "light": {
+    "primary": "#7daea3",
+    "primaryContainer": "#3b4439",
+    "secondary": "#d8a657",
+    "surfaceText": "#3c3836",
+    "surfaceVariantText": "#504945",
+    "backgroundText": "#3c3836",
+    "outline": "#7c6f64",
+    "error": "#c14a4a",
+    "warning": "#b47109",
+    "info": "#7daea3"
+  },
+  "variants": {
+    "default": "hard",
+    "options": [
+      {
+        "id": "hard",
+        "name": "Hard",
+        "dark": {
+          "primaryText": "#141617",
+          "surface": "#1d2021",
+          "surfaceVariant": "#1d2021",
+          "surfaceTint": "#333e34",
+          "background": "#1d2021",
+          "surfaceContainer": "#282524",
+          "surfaceContainerHigh": "#32302f",
+          "surfaceContainerHighest": "#3c3836"
+        },
+        "light": {
+          "primaryText": "#f3eac7",
+          "surface": "#f3eac7",
+          "surfaceVariant": "#f9f5d7",
+          "surfaceTint": "#dde5c2",
+          "background": "#f9f5d7",
+          "surfaceContainer": "#f5edca",
+          "surfaceContainerHigh": "#f2e5bc",
+          "surfaceContainerHighest": "#ebdbb2"
+        }
+      },
+      {
+        "id": "medium",
+        "name": "Medium",
+        "dark": {
+          "primaryText": "#1d2021",
+          "surface": "#1d2021",
+          "surfaceVariant": "#282524",
+          "surfaceTint": "#3b4439",
+          "background": "#1d2021",
+          "surfaceContainer": "#282524",
+          "surfaceContainerHigh": "#32302f",
+          "surfaceContainerHighest": "#3c3836"
+        },
+        "light": {
+          "primaryText": "#f2e5bc",
+          "surface": "#f2e5bc",
+          "surfaceVariant": "#fbf1c7",
+          "surfaceTint": "#dee2b6",
+          "background": "#fbf1c7",
+          "surfaceContainer": "#f4e8be",
+          "surfaceContainerHigh": "#eee0b7",
+          "surfaceContainerHighest": "#ddccab"
+        }
+      },
+      {
+        "id": "soft",
+        "name": "Soft",
+        "dark": {
+          "primaryText": "#282524",
+          "surface": "#282524",
+          "surfaceVariant": "#32302f",
+          "surfaceTint": "#424a3e",
+          "background": "#282524",
+          "surfaceContainer": "#32302f",
+          "surfaceContainerHigh": "#3c3836",
+          "surfaceContainerHighest": "#504945"
+        },
+        "light": {
+          "primaryText": "#ebdbb2",
+          "surface": "#ebdbb2",
+          "surfaceVariant": "#f2e5bc",
+          "surfaceTint": "#d7d9ae",
+          "background": "#f2e5bc",
+          "surfaceContainer": "#eddeb5",
+          "surfaceContainerHigh": "#e6d5ae",
+          "surfaceContainerHighest": "#d5c4a1"
+        }
+      }
+    ]
+  },
+  "sourceDir": "Gruvbox-Dark"
+}

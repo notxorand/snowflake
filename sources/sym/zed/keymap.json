@@ -28,6 +28,7 @@
     "context": "Editor",
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
+      "ctrl-n": "workspace::ToggleRightDock",
     },
   },
   {
@@ -81,8 +82,22 @@
   {
     "context": "(!Editor && !Terminal)",
     "bindings": {
+      ";": "command_palette::Toggle",
       "space": "command_palette::Toggle", // leader key
       "space x": "pane::CloseActiveItem",
+      "space e": "project_panel::ToggleFocus",
+      "space /": "editor::ToggleComments",
+      "space x": "pane::CloseActiveItem",
+      "space b": "workspace::NewFile",
+      "space f a": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
+      "space g t": "git_panel::Toggle",
+    },
+  },
+  {
+    "context": "(Editor && showing_completions)",
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
     },
   },
 ]

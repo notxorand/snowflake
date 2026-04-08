@@ -14,6 +14,11 @@ with inputs;
   pkgs-latest.zls
   pkgs-latest.cider
   pkgs-latest.dms-shell
+  pkgs-latest.matugen
+  adw-gtk3
+  adwaita-qt
+  adwaita-qt6
+  qt6ct
   extundelete
   postgresql
   cloudflare-warp

@@ -3,7 +3,8 @@
   "currentThemeCategory": "registry",
   "customThemeFile": "/home/ewan/.config/DankMaterialShell/themes/gruvboxMaterial/theme.json",
   "registryThemeVariants": {
-    "gruvboxMaterial": "hard"
+    "gruvboxMaterial": "hard",
+    "gruvboxDark": "hard"
   },
   "matugenScheme": "scheme-tonal-spot",
   "runUserMatugenTemplates": true,
@@ -77,12 +78,7 @@
   "privacyShowScreenShareIcon": false,
   "controlCenterWidgets": [
     {
-      "id": "volumeSlider",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "brightnessSlider",
+      "id": "idleInhibitor",
       "enabled": true,
       "width": 50
     },
@@ -112,9 +108,9 @@
       "width": 50
     },
     {
-      "id": "doNotDisturb",
+      "id": "darkMode",
       "enabled": true,
-      "width": 25
+      "width": 50
     },
     {
       "id": "colorPicker",
@@ -122,14 +118,21 @@
       "width": 25
     },
     {
-      "id": "darkMode",
+      "id": "doNotDisturb",
       "enabled": true,
-      "width": 50
+      "width": 25
     },
     {
-      "id": "idleInhibitor",
+      "id": "volumeSlider",
       "enabled": true,
-      "width": 50
+      "width": 100
+    },
+    {
+      "id": "brightnessSlider",
+      "enabled": true,
+      "width": 100,
+      "instanceId": "mnoecylvsiru18iuuw93jbank49bg",
+      "deviceName": ""
     }
   ],
   "showWorkspaceIndex": true,
@@ -189,7 +192,7 @@
   "appLauncherGridColumns": 5,
   "spotlightCloseNiriOverview": true,
   "spotlightSectionViewModes": {
-    "apps": "list"
+    "apps": "grid"
   },
   "appDrawerSectionViewModes": {
     "apps": "grid"
@@ -204,7 +207,7 @@
   "useAutoLocation": true,
   "weatherEnabled": true,
   "networkPreference": "wifi",
-  "iconTheme": "WhiteSur-dark",
+  "iconTheme": "Reversal-dark",
   "cursorSettings": {
     "theme": "Bibata-Modern-Classic",
     "size": 24,
@@ -297,11 +300,11 @@
   "matugenTemplateVscode": true,
   "matugenTemplateEmacs": true,
   "showDock": true,
-  "dockAutoHide": true,
-  "dockSmartAutoHide": false,
-  "dockGroupByApp": false,
-  "dockOpenOnOverview": false,
-  "dockPosition": 2,
+  "dockAutoHide": false,
+  "dockSmartAutoHide": true,
+  "dockGroupByApp": true,
+  "dockOpenOnOverview": true,
+  "dockPosition": 1,
   "dockSpacing": 4,
   "dockBottomGap": 0,
   "dockMargin": 0,
@@ -334,7 +337,7 @@
   "lockScreenShowPasswordField": false,
   "lockScreenShowMediaPlayer": true,
   "lockScreenPowerOffMonitorsOnLock": false,
-  "lockAtStartup": true,
+  "lockAtStartup": false,
   "enableFprint": true,
   "maxFprintTries": 15,
   "lockScreenActiveMonitor": "all",

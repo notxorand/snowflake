@@ -18,7 +18,7 @@ if test -f ~/.cache/ags/user/generated/terminal/sequences.txt
 end
 
 set -gx ANDROID_HOME $HOME/Android/Sdk
-set -gx EDITOR hx
+set -gx EDITOR nvim
 set -gx BROWSER zen-beta
 set -gx TERM ghostty
 
@@ -71,7 +71,6 @@ alias ..rs="..rust"
 alias ..go="go run ."
 alias mk="make"
 alias super="chmod +wx"
-alias emulator="QT_QPA_PLATFORM=xcb ~/Android/Sdk/emulator/emulator"
 
 # function fish_prompt
 #   set_color cyan; echo (pwd)
@@ -101,20 +100,12 @@ export PATH="$PATH:/opt/riscv/bin"
 #set_color cyan; echo -e "|_____|___|_|___|___|_|_|_|___|  |___|_____|__,|_|_|"
 #set_color cyan; echo -e "                                                    "
 
-# Wasmer
-export WASMER_DIR="/home/ewan/.wasmer"
-[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
-set -gx WASMTIME_HOME "$HOME/.wasmtime"
-
-string match -r ".wasmtime" "$PATH" > /dev/null; or set -gx PATH "$WASMTIME_HOME/bin" $PATH
-
 fish_vi_key_bindings
-set fish_cursor_default block
-set fish_cursor_insert line
+set fish_cursor_default block blink
+set fish_cursor_insert underscore blink
 set fish_cursor_replace_one underscore
 set fish_cursor_replace underscore
-set fish_cursor_external linefish_cursor_visual block
+set fish_cursor_external line
 set fish_cursor_visual block
 
 set -gx PATH $PATH $HOME/go/bin
-set -gx AZURE_RESOURCE_NAME mesa-2077

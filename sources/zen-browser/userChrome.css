@@ -1,0 +1,571 @@
+* {
+  font-family: "GeistMono Nf" !important;
+}
+
+#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon,
+.tab-background:is([selected], [multiselected]) {
+  box-shadow: none !important;
+}
+
+/* Change the noise for browser texture */
+#browser {
+  &::before {
+    background-image: url("noise.svg") !important;
+    mix-blend-mode: overlay;
+  }
+
+  background: var(--zen-main-browser-background-toolbar) !important;
+}
+
+.browserSidebarContainer {
+  --zen-native-inner-radius: 15px;
+}
+
+#zen-current-workspace-indicator {
+  display: none !important;
+}
+
+#TabsToolbar {
+  -moz-window-dragging: no-drag !important;
+}
+
+.tab-background[selected] {
+  background: none !important;
+}
+
+.tabbrowser-tab:hover
+  > .tab-stack
+  > .tab-background:not([selected], [multiselected]) {
+  background-color: var(--tab-hover-background-color) !important;
+}
+
+.tab-background {
+  outline: none !important;
+}
+
+#tabbrowser-arrowscrollbox-periphery,
+#tabs-newtab-button {
+  color: #aaa !important;
+}
+
+#tabs-newtab-button > .toolbarbutton-icon {
+  list-style-image: url("plus2.svg") !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+/*changes the extension icon */
+#unified-extensions-button {
+  list-style-image: url("img.png") !important;
+}
+
+#copyURL-img {
+  background-image: url("link.png");
+}
+
+.tabbrowser-tab {
+  animation: none !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+  .tab-background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: color-mix(
+      in srgb,
+      rgba(255, 255, 255, 0.1),
+      var(--zen-primary-color) 40%
+    );
+    visibility: visible;
+    border: 1.75px
+      color-mix(in srgb, rgba(255, 255, 255, 0.1), var(--zen-primary-color) 70%)
+      solid;
+    border-radius: 10px;
+  }
+
+  .tab-background {
+    visibility: hidden;
+  }
+}
+
+.tab-background {
+  margin: 0px !important;
+}
+
+.tab-stack {
+  margin: 4px;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+/* Animated gradient tab when loading the page */
+.tabbrowser-tab[busy="true"] {
+  &[selected="true"] {
+    .tab-background::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          color-mix(
+              in srgb,
+              rgba(255, 255, 255, 0.1),
+              var(--zen-primary-color) 40%
+            )
+            40%,
+          color-mix(
+            in srgb,
+            rgba(255, 255, 255, 0.1),
+            var(--zen-primary-color) 100%
+          ),
+          color-mix(
+              in srgb,
+              rgba(255, 255, 255, 0.1),
+              var(--zen-primary-color) 40%
+            )
+            60%
+        ),
+        var(--bruh);
+      overflow: visible;
+      background-size: 400% 100%;
+      animation: tab-loading-gradient 3s linear reverse infinite;
+      animation-play-state: running;
+      transition: opacity 0.25s;
+      --bruh: linear-gradient(
+        90deg,
+        color-mix(
+            in srgb,
+            rgba(255, 255, 255, 0.1),
+            var(--zen-primary-color) 70%
+          )
+          45%,
+        color-mix(
+          in srgb,
+          rgba(255, 255, 255, 0.1),
+          var(--zen-primary-color) 100%
+        ),
+        color-mix(
+            in srgb,
+            rgba(255, 255, 255, 0.1),
+            var(--zen-primary-color) 70%
+          )
+          55%
+      );
+      border: double 3px transparent;
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      border-radius: 10px;
+    }
+  }
+}
+
+.tabbrowser-tab[busy="true"] {
+  &:not([selected="true"]) {
+    .tab-background::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        color-mix(
+            in srgb,
+            rgba(255, 255, 255, 0.1),
+            var(--zen-primary-color) 40%
+          )
+          40%,
+        color-mix(
+          in srgb,
+          rgba(255, 255, 255, 0.1),
+          var(--zen-primary-color) 100%
+        ),
+        color-mix(
+            in srgb,
+            rgba(255, 255, 255, 0.1),
+            var(--zen-primary-color) 40%
+          )
+          60%
+      );
+      overflow: visible;
+      background-size: 400% 100%;
+      animation: tab-loading-gradient 3s linear reverse infinite;
+      animation-play-state: running;
+      transition: opacity 0.25s;
+      border-radius: 10px;
+    }
+  }
+}
+
+.tabbrowser-tab[busy="true"] {
+  &:not([selected="true"]) {
+    &:not([zen-essential="true"]) {
+      .tab-background::before {
+        margin: 2px;
+      }
+    }
+  }
+}
+
+@keyframes tab-loading-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 400% 0%;
+  }
+}
+
+/* Fix URL text alignment */
+#tracking-protection-icon-container,
+#page-action-buttons {
+  display: none !important;
+}
+
+#tab-preview-panel {
+  --panel-background: color-mix(
+    in srgb,
+    var(--arrowpanel-background),
+    transparent 10%
+  ) !important;
+  z-index: 4000000 !important;
+}
+
+.tab-preview-uri {
+  scroll-behavior: smooth !important;
+  color: var(--text-color-deemphasized);
+  overflow: hidden;
+  white-space: nowrap;
+  animation: marquee-h 10s ease-in-out infinite;
+
+  position: relative !important;
+  display: inline-block;
+  left: 0;
+
+  font-size: 12px;
+  font-weight: 400;
+  padding: 2px;
+}
+
+@keyframes marquee-h {
+  0%,
+  20%,
+  80%,
+  100% {
+    transform: translateX(0px);
+  }
+  40%,
+  60% {
+    transform: translateX(calc(-1 * max(0px, 100% - 266px)));
+  }
+}
+
+.tab-preview-title-text {
+  width: 100%;
+  line-height: 1.42;
+  max-height: 2lh;
+  overflow: hidden !important;
+  padding: 2px;
+}
+
+.tab-preview-title {
+  line-height: 1.42;
+  scroll-behavior: smooth !important;
+  overflow: hidden !important;
+  -webkit-line-clamp: none !important;
+  font-weight: var(--font-weight-bold);
+  white-space: break-spaces !important;
+  display: inline-block !important;
+  animation: marquee-v 10s ease-in-out infinite;
+}
+
+@keyframes marquee-v {
+  0%,
+  20%,
+  80%,
+  100% {
+    transform: translateY(0px);
+  }
+  40%,
+  60% {
+    transform: translateY(calc(-1 * max(0px, 100% - 2lh)));
+  }
+}
+
+tab-group {
+  display: grid !important;
+  background: color-mix(
+    in srgb,
+    var(--tab-group-color-invert) 50%,
+    transparent
+  ) !important;
+  border-radius: calc(var(--border-radius-medium) + 2px) !important;
+  margin-top: 2px !important;
+  margin-bottom: 1px !important;
+  margin-inline: 2px !important;
+  border: 2px solid
+    color-mix(in srgb, var(--tab-group-color-invert) 50%, transparent) !important;
+
+  max-height: var(--tab-collapsed-background-width) !important;
+  height: unset !important;
+  transition: max-height 0.3s;
+
+  &:not([collapsed]) {
+    max-height: 5000px !important;
+  }
+
+  & .tab-group-label-container {
+    margin-inline: 0px !important;
+    width: 100%;
+
+    & > label::before {
+      content: "" !important;
+      position: absolute !important;
+      left: 7px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      width: 16px !important;
+      height: 16px !important;
+      background-color: var(--sidebar-text-color);
+      mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgOS41MDJWOC43NWEyLjI1IDIuMjUgMCAwIDAtMi4yNS0yLjI1aC01LjcyNWwtMi4zOC0xLjk4QTIuMjUgMi4yNSAwIDAgMCA4LjIwNCA0SDQuMjVBMi4yNSAyLjI1IDAgMCAwIDIgNi4yNWwtLjAwNCAxMS41QTIuMjUgMi4yNSAwIDAgMCA0LjI0NiAyMEgxOC40N2ExLjc1IDEuNzUgMCAwIDAgMS42OTgtMS4zMjVsMS43NS02Ljk5OGExLjc1IDEuNzUgMCAwIDAtMS42OTgtMi4xNzVIMjBaTTQuMjUgNS41aDMuOTU2YS43NS43NSAwIDAgMSAuNDguMTczbDIuNTg4IDIuMTU0YS43NS43NSAwIDAgMCAuNDguMTczaDUuOTk2YS43NS43NSAwIDAgMSAuNzUuNzV2Ljc1Mkg2LjQyNGEyLjI1IDIuMjUgMCAwIDAtMi4xODMgMS43MDRsLS43NDQgMi45NzhMMy41IDYuMjVhLjc1Ljc1IDAgMCAxIC43NS0uNzVabTEuNDQ3IDYuMDdhLjc1Ljc1IDAgMCAxIC43MjctLjU2OEgyMC4yMmEuMjUuMjUgMCAwIDEgLjI0Mi4zMWwtMS43NSA2Ljk5OWEuMjUuMjUgMCAwIDEtLjI0Mi4xODlINC4yODVhLjI1LjI1IDAgMCAxLS4yNDMtLjMxbDEuNjU1LTYuNjJaIiBmaWxsPSIjMDAwMDAwIi8+PC9zdmc+");
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+    }
+
+    & > label {
+      max-width: 100% !important;
+      padding-top: 5px !important;
+      padding-bottom: 6px !important;
+      padding-inline: 2.25em !important;
+      background: transparent !important;
+      border: unset !important;
+      font-weight: 600 !important;
+      text-align: unset !important;
+      color: var(--sidebar-text-color) !important;
+    }
+  }
+
+  & tab {
+    opacity: 1 !important;
+    font-size: 1 !important;
+    transition:
+      font-size 0.05s,
+      margin 0.05s,
+      padding 0.05s,
+      opacity 0.05s !important;
+  }
+
+  &[collapsed] {
+    height: auto !important;
+    overflow: hidden !important;
+
+    & .tab-group-label-container > label::before {
+      content: "" !important;
+      position: absolute !important;
+      left: 7px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      width: 16px !important;
+      height: 16px !important;
+      background-color: var(--sidebar-text-color);
+      mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOC4yMDcgNGMuNDYgMCAuOTA4LjE0MSAxLjI4NC40MDJsLjE1Ni4xMkwxMi4wMjIgNi41aDcuNzI4YTIuMjUgMi4yNSAwIDAgMSAyLjIyOSAxLjkzOGwuMDE2LjE1OC4wMDUuMTU0djlhMi4yNSAyLjI1IDAgMCAxLTIuMDk2IDIuMjQ1TDE5Ljc1IDIwSDQuMjVhMi4yNSAyLjI1IDAgMCAxLTIuMjQ1LTIuMDk2TDIgMTcuNzVWNi4yNWEyLjI1IDIuMjUgMCAwIDEgMi4wOTYtMi4yNDVMNC4yNSA0aDMuOTU3Wm0xLjQ0IDUuOTc5YTIuMjUgMi4yNSAwIDAgMS0xLjI0NC41MTJsLS4xOTYuMDA5LTQuNzA3LS4wMDF2Ny4yNTFjMCAuMzguMjgyLjY5NC42NDguNzQzbC4xMDIuMDA3aDE1LjVhLjc1Ljc1IDAgMCAwIC43NDMtLjY0OGwuMDA3LS4xMDJ2LTlhLjc1Ljc1IDAgMCAwLS42NDgtLjc0M0wxOS43NSA4aC03LjcyOUw5LjY0NyA5Ljk3OVpNOC4yMDcgNS41SDQuMjVhLjc1Ljc1IDAgMCAwLS43NDMuNjQ4TDMuNSA2LjI1djIuNzQ5TDguMjA3IDlhLjc1Ljc1IDAgMCAwIC4zOTUtLjExM2wuMDg1LS4wNiAxLjg5MS0xLjU3OC0xLjg5LTEuNTc1YS43NS43NSAwIDAgMC0uMzc3LS4xNjdMOC4yMDcgNS41WiIgZmlsbD0iIzAwMDAwMCIvPjwvc3ZnPg==");
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+    }
+
+    & tab {
+      display: flex !important;
+      opacity: 0 !important;
+      padding: 0 !important;
+      font-size: 0 !important;
+      margin: 0 !important;
+      transition:
+        opacity 0.25s ease-in,
+        font-size 0.25s ease-out,
+        margin 0.25s ease-out,
+        padding 0.25s ease-out !important;
+    }
+  }
+}
+
+/* Element | chrome://browser/content/browser.xhtml */
+
+#tab-preview-panel {
+  --panel-border-radius: 10px;
+  --zen-panel-radius: 10px;
+}
+
+/* Element | chrome://browser/content/browser.xhtml */
+
+.tab-preview-thumbnail-container > canvas:nth-child(1) {
+  /* border-radius: calc(var(--zen-panel-radius) - 6px) !important; */
+  /* border-radius: 0px !important; */
+  --zen-panel-radius: 6px;
+}
+
+/* Element | chrome://browser/content/browser.xhtml */
+
+.tab-preview-thumbnail-container {
+  /* border-radius: 0px !important; */
+  /* overflow: clip; */
+  padding: 4px;
+}
+
+/* DMS Matugen Zen Browser Theme */
+:root {
+  --zen-primary-color: #3b4439 !important;
+  /*--zen-colors-tertiary: #3b4439 !important;*/
+  --toolbarbutton-icon-fill: #7daea3 !important;
+  --toolbar-field-color: #fbf1c7 !important;
+  --tab-selected-textcolor: #7daea3 !important;
+  --toolbar-color: #fbf1c7 !important;
+  --arrowpanel-color: #fbf1c7 !important;
+  --arrowpanel-background: #282524 !important;
+  --sidebar-text-color: #fbf1c7 !important;
+  --zen-main-browser-background: #1d2021 !important;
+}
+
+.sidebar-placesTree {
+  background-color: #282524 !important;
+}
+
+#zen-workspaces-button {
+  background-color: #1d2021 !important;
+}
+
+#TabsToolbar {
+  background-color: #1d2021 !important;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}
+
+.navigator-toolbox {
+  border-radius: 10px;
+}
+
+.urlbar-background {
+  background-color: #282524 !important;
+}
+
+.urlbar-input::selection {
+  color: #141617 !important;
+  background-color: #7daea3 !important;
+}
+
+.urlbarView-url {
+  color: #d4be98 !important;
+}
+
+toolbar .toolbarbutton-1 {
+  &:not([disabled]) {
+    &:is([open], [checked])
+      > :is(
+        .toolbarbutton-icon,
+        .toolbarbutton-text,
+        .toolbarbutton-badge-stack
+      ) {
+      fill: #7daea3;
+    }
+  }
+}
+
+.identity-color-blue {
+  --identity-tab-color: #91bfb5 !important;
+  --identity-icon-color: #91bfb5 !important;
+}
+
+.identity-color-turquoise {
+  --identity-tab-color: #7daea3 !important;
+  --identity-icon-color: #7daea3 !important;
+}
+
+.identity-color-green {
+  --identity-tab-color: #87d08c !important;
+  --identity-icon-color: #87d08c !important;
+}
+
+.identity-color-yellow {
+  --identity-tab-color: #fff7a5 !important;
+  --identity-icon-color: #fff7a5 !important;
+}
+
+.identity-color-orange {
+  --identity-tab-color: #d9cf61 !important;
+  --identity-icon-color: #d9cf61 !important;
+}
+
+.identity-color-red {
+  --identity-tab-color: #eab092 !important;
+  --identity-icon-color: #eab092 !important;
+}
+
+.identity-color-pink {
+  --identity-tab-color: #b5e2d8 !important;
+  --identity-icon-color: #b5e2d8 !important;
+}
+
+.identity-color-purple {
+  --identity-tab-color: #265047 !important;
+  --identity-icon-color: #265047 !important;
+}
+
+zen-workspace {
+  --zen-primary-color: #3b4439 !important;
+  --toolbarbutton-icon-fill: #7daea3 !important;
+  --toolbar-field-color: #fbf1c7 !important;
+  --tab-selected-textcolor: #7daea3 !important;
+  --toolbar-color: #fbf1c7 !important;
+  --arrowpanel-color: #fbf1c7 !important;
+  --arrowpanel-background: #282524 !important;
+  --sidebar-text-color: #fbf1c7 !important;
+}
+
+#zen-appcontent-navbar-container {
+  background-color: #1d2021 !important;
+}
+
+/* Custom Context Menu Styling */
+menupopup,
+menupopup > arrowscrollbox,
+menupopup > arrowscrollbox > scrollbox {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+menuitem,
+menu {
+  background-color: inherit !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+/* Hover state for menu items */
+menuitem:hover,
+menu:hover {
+  background-color: #3b4439 !important;
+}
+
+/* Active/selected state */
+menuitem[_moz-menuactive="true"],
+menu[_moz-menuactive="true"] {
+  background-color: #4a5a4f !important;
+}
+
+/* Disabled menu items */
+menuitem[disabled="true"],
+menu[disabled="true"] {
+  background-color: inherit !important;
+  opacity: 0.5;
+}
+
+/* Target the menu text/label for proper border-radius rendering */
+menuitem > .menu-text,
+menu > .menu-text,
+menuseparator {
+  border-radius: 10px !important;
+}

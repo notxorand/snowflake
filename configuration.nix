@@ -35,7 +35,9 @@
     ];
     allowedUDPPorts = [
       53317
+      5353
     ];
+    trustedInterfaces = [ "wlp0s20f3" ];
   };
 
   time.timeZone = "Africa/Lagos";

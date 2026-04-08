@@ -39,26 +39,24 @@
     ".config/fastfetch".recursive = true;
     ".config/quickshell".source = ./sources/quickshell;
     ".config/quickshell".recursive = true;
-    ".config/qt5ct".source = ./sources/qt5ct;
-    ".config/qt5ct".recursive = true;
-    ".config/qt6ct".source = ./sources/qt6ct;
-    ".config/qt6ct".recursive = true;
+    ".config/gtk-3.0".source = ./sources/gtk-3.0;
+    ".config/gtk-3.0".recursive = true;
+    ".config/gtk-4.0".source = ./sources/gtk-4.0;
+    ".config/gtk-4.0".recursive = true;
   };
 
   home.pointerCursor = {
     name = "Bibata-Modern-Classic";
     size = 24;
-    gtk.enable = true;
+    gtk.enable = false;
     x11.enable = true;
     package = pkgs.bibata-cursors;
   };
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "WhiteSur-Dark";
-      package = pkgs.whitesur-icon-theme;
-    };
-  };
+
+  home.packages = with pkgs; [
+    reversal-icon-theme
+    whitesur-icon-theme
+  ];
 
   home.sessionVariables = {
     DISABLE_QT5_COMPAT = "0";

@@ -69,7 +69,7 @@ return {
             require("auto-session").setup({
                 auto_create = true,
                 auto_restore = true,
-                auto_restore_last_session = true,
+                auto_restore_last_session = false,
                 auto_save = true,
                 auto_session_session_name = "Session.vim",
                 enabled = true,
