@@ -428,6 +428,7 @@ tab-group {
   --arrowpanel-background: #282524 !important;
   --sidebar-text-color: #fbf1c7 !important;
   --zen-main-browser-background: #1d2021 !important;
+  --zen-menu-radius: 10px !important;
 }
 
 .sidebar-placesTree {
@@ -523,6 +524,7 @@ zen-workspace {
   --arrowpanel-color: #fbf1c7 !important;
   --arrowpanel-background: #282524 !important;
   --sidebar-text-color: #fbf1c7 !important;
+  --zen-menu-radius: 10px !important;
 }
 
 #zen-appcontent-navbar-container {
@@ -539,9 +541,17 @@ menupopup > arrowscrollbox > scrollbox {
 
 menuitem,
 menu {
-  background-color: inherit !important;
-  border-radius: 10px !important;
+  background-color: color-mix(
+    in srgb,
+    var(--zen-primary-color) 40%,
+    var(--zen-colors-tertiary)
+  ) !important;
+  border-radius: 8px !important;
   overflow: hidden !important;
+}
+
+toolbarbutton {
+  border-radius: 8px !important;
 }
 
 /* Hover state for menu items */
@@ -563,9 +573,12 @@ menu[disabled="true"] {
   opacity: 0.5;
 }
 
-/* Target the menu text/label for proper border-radius rendering */
-menuitem > .menu-text,
-menu > .menu-text,
-menuseparator {
-  border-radius: 10px !important;
+menupopup,
+panel {
+  --panel-background: color-mix(
+    in srgb,
+    var(--zen-primary-color) 40%,
+    var(--zen-colors-tertiary)
+  ) !important;
+  --panel-border-radius: 10px !important;
 }
