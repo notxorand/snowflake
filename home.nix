@@ -48,8 +48,6 @@
     ".config/ghostty".recursive = true;
     ".config/fastfetch".source = ./sources/fastfetch;
     ".config/fastfetch".recursive = true;
-    ".config/quickshell".source = ./sources/quickshell;
-    ".config/quickshell".recursive = true;
     ".config/gtk-3.0".source = ./sources/gtk-3.0;
     ".config/gtk-3.0".recursive = true;
     ".config/gtk-4.0".source = ./sources/gtk-4.0;
