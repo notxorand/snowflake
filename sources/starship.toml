@@ -95,7 +95,7 @@ format = '(bold fg:red)[$path ]($style)'
 "Videos" = "  "
 "/go" = "/ 󰟓 "
 "/rust" = "/ 󱘗 "
-"/gleam" = "/  "
+"/zig" = "/  "
 "/ts" = "/  "
 
 [cmd_duration]

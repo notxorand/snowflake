@@ -10,7 +10,7 @@
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
-      // "ctrl-t": "terminal_panel::ToggleFocus",
+      "ctrl-t": "terminal_panel::Toggle",
       "ctrl-n": "workspace::ToggleRightDock",
       // "shift-ctrl-e": "project_panel::ToggleFocus",
       "ctrl-e": "project_panel::ToggleFocus",
@@ -21,7 +21,7 @@
       "alt-v": ["app_menu::OpenApplicationMenu", "View"],
       "alt-g": ["app_menu::OpenApplicationMenu", "Go"],
       "alt-w": ["app_menu::OpenApplicationMenu", "Window"],
-      "alt-h": "terminal_panel::Toggle",
+      "alt-h": "workspace::ToggleBottomDock",
     },
   },
   {
@@ -34,24 +34,29 @@
   {
     "context": "Terminal",
     "bindings": {
-      "alt-h": "workspace::ToggleBottomDock",
+      "ctrl-escape": "terminal::ToggleViMode",
       "ctrl-t": "workspace::NewTerminal",
+      "alt-h": "workspace::ToggleBottomDock",
       "ctrl-w k": "editor::ToggleFocus",
     },
   },
   {
     "context": "vim_mode == normal",
     "bindings": {
+      "space +": "workspace::IncreaseActiveDockSize",
+      "space -": "workspace::DecreaseActiveDockSize",
       "space": "command_palette::Toggle", // leader key
       "space e": "project_panel::ToggleFocus",
       "space /": "editor::ToggleComments",
       "space x": "pane::CloseActiveItem",
       "space b": "workspace::NewFile",
+      "space f": "file_finder::Toggle",
       "space f a": "file_finder::Toggle",
       "space f f": "file_finder::Toggle",
       "space g t": "git_panel::Toggle",
       "g c": "editor::ToggleComments",
-      "alt-h": "terminal_panel::Toggle",
+      "ctrl-t": "terminal_panel::Toggle",
+      "alt-h": "workspace::ToggleBottomDock",
       ";": "command_palette::Toggle",
       "tab": "tab_switcher::ToggleAll",
       "shift-tab": "tab_switcher::ToggleAll",
@@ -76,6 +81,7 @@
   {
     "context": "!Editor",
     "bindings": {
+      "ctrl-t": "terminal_panel::Toggle",
       "ctrl-n": "workspace::ToggleRightDock",
     },
   },
@@ -87,8 +93,8 @@
       "space x": "pane::CloseActiveItem",
       "space e": "project_panel::ToggleFocus",
       "space /": "editor::ToggleComments",
-      "space x": "pane::CloseActiveItem",
       "space b": "workspace::NewFile",
+      "space f": "file_finder::Toggle",
       "space f a": "file_finder::Toggle",
       "space f f": "file_finder::Toggle",
       "space g t": "git_panel::Toggle",

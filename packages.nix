@@ -12,16 +12,25 @@ with inputs;
   pkgs-latest.zed-editor
   pkgs-latest.ghostty
   pkgs-latest.zls
-  pkgs-latest.cider
   pkgs-latest.dms-shell
   pkgs-latest.matugen
+  pkgs-latest.amp-cli
+  pkgs-latest.codex-acp
+  pkgs-latest.opencode
+  pkgs-latest.obsidian
+  pkgs-latest.swift
+  pkgs-latest.swiftPackages.swiftpm
+  pkgs-latest.cloudflare-warp
+  direnv
+  gnupg
+  pinentry
+  godot
   adw-gtk3
   adwaita-qt
   adwaita-qt6
   qt6ct
   extundelete
   postgresql
-  cloudflare-warp
   wasmtime
   ntfs3g
   git
@@ -96,9 +105,11 @@ with inputs;
   kitty
   kitty-img
   kittysay
+  websocat
   libsForQt5.qt5ct
   qt6ct
   qt6.qtwayland
+  qt6.qtmultimedia
   kdePackages.qt5compat
   libsForQt5.qt5.qtgraphicaleffects
   qt6Packages.qtstyleplugin-kvantum
@@ -109,6 +120,7 @@ with inputs;
   kdePackages.sonnet
   kdePackages.kirigami
   kdePackages.kirigami-addons # Not sure if this is needed
+  ffmpeg
   fuzzel
   fprintd-tod
   python313Full
@@ -142,7 +154,6 @@ with inputs;
   qemu
   nushell
   b3sum
-  opencode
   wabt
   helix
   wakatime
@@ -160,12 +171,20 @@ with inputs;
   nil
   discord
   inkscape
+  # (ghidra-bin.overrideAttrs (old: {
+  #   postInstall = (old.postInstall or "") + ''
+  #     wrapProgram $out/bin/ghidra \
+  #       --set DISPLAY :0 \
+  #       --set _JAVA_AWT_WM_NONREPARENTING 1
+  #   '';
+  # }))
   ghidra-bin
   tiled
   ladybird
   love
   natscli
   nats-server
+  libnats-c
   just
   buffrs
   ripgrep

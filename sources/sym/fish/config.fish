@@ -109,3 +109,4 @@ set fish_cursor_external line
 set fish_cursor_visual block
 
 set -gx PATH $PATH $HOME/go/bin
+set -gx DISPLAY :0

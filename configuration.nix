@@ -38,6 +38,12 @@
       5353
     ];
     trustedInterfaces = [ "wlp0s20f3" ];
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
   };
 
   time.timeZone = "Africa/Lagos";
@@ -98,6 +104,7 @@
     nerd-fonts.zed-mono
   ];
 
+  services.udev.packages = with pkgs; [ game-devices-udev-rules ];
   users.users.ewan = {
     isNormalUser = true;
     description = "ewan";
@@ -106,6 +113,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "input"
     ];
     packages = with pkgs; [
     ];
@@ -123,19 +131,28 @@
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
 
   systemd.packages = [
-    pkgs.cloudflare-warp
     pkgs.wayland-pipewire-idle-inhibit
   ];
   systemd.targets.multi-user.wants = [
     "warp-svc.service"
     "wayland-pipewire-idle-inhibit.service"
   ];
-  services.cloudflare-warp.enable = true;
+  services.cloudflare-warp = {
+    enable = true;
+    package = pkgs-latest.cloudflare-warp;
+  };
   systemd.user.services.warp-taskbar.wantedBy = [ "graphical.target" ];
 
   programs.firefox.enable = true;
   programs.niri.enable = true;
   programs.fish.enable = true;
+  programs.kdeconnect.enable = true;
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-gnome3;
+  };
 
   nixpkgs.config.allowUnfree = true;
 

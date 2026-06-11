@@ -7,8 +7,67 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "new_window",
+  "language_models": {
+    "openai_compatible": {
+      "Groq": {
+        "api_url": "https://api.groq.com/openai/v1",
+        "available_models": [
+          {
+            "name": "groq/compound",
+            "max_tokens": 200000,
+            "max_output_tokens": 8192,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+          {
+            "name": "openai/gpt-oss-120b",
+            "max_tokens": 200000,
+            "max_output_tokens": 65536,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+        ],
+      },
+    },
+  },
   "agent_servers": {
-    "cursor": {
+    "factory-droid": {
+      "type": "registry",
+    },
+    "cline": {
+      "type": "registry",
+    },
+    "Amp": {
+      "type": "custom",
+      "command": "npx",
+      "args": ["-y", "amp-acp"],
+      "env": {
+        "AMP_API_KEY": "sgamp_user_01KJ6BC2FGY03G3M81338KGF12_79903ba7b91c3a942a08fa51540d40d121d5a2eac8bfe000dc4500d173f7c68b",
+      },
+    },
+    "Codex": {
+      "type": "custom",
+      "command": "/run/current-system/sw/bin/codex-acp",
+    },
+    "OpenCode": {
+      "type": "custom",
+      "command": "opencode",
+      "args": ["acp"],
+    },
+    "gemini": {
       "type": "registry",
     },
     "github-copilot": {
@@ -30,9 +89,6 @@
     },
   },
   "edit_predictions": {
-    "sweep": {
-      "privacy_mode": true,
-    },
     "provider": "zed",
     "disabled_globs": [".env"],
     "mode": "subtle",
@@ -40,12 +96,15 @@
       "proxy": null,
       "proxy_no_verify": null,
     },
-    "enabled_in_text_threads": false,
   },
   "auto_update_extensions": {
     "charmed-icons": false,
   },
-  "icon_theme": "Soft Charmed Icons",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Soft Charmed Icons",
+    "dark": "Soft Charmed Icons",
+  },
   "agent": {
     "favorite_models": [
       {
@@ -68,19 +127,20 @@
       "default": "allow",
     },
     "inline_assistant_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4",
+      "provider": "google",
+      "model": "gemini-3-flash-preview",
     },
     "default_profile": "write",
     "default_model": {
-      "enable_thinking": false,
-      "provider": "copilot_chat",
-      "model": "claude-haiku-4.5",
+      "enable_thinking": true,
+      "provider": "google",
+      "model": "gemini-2.5-flash",
     },
     "dock": "right",
     "button": false,
   },
   "outline_panel": {
+    "dock": "left",
     "button": false,
   },
   // "minimap": { "show": "auto" },
@@ -118,18 +178,13 @@
   "buffer_font_size": 14.0,
   "soft_wrap": "editor_width",
   "title_bar": {
-    "show_branch_icon": true,
+    "show_branch_status_icon": true,
     "show_onboarding_banner": false,
     "show_menus": false,
     "show_project_items": false,
   },
   "tab_bar": {
     "show": false,
-  },
-  "slash_commands": {
-    "cargo_workspace": {
-      "enabled": false,
-    },
   },
   "theme": {
     "mode": "dark",
