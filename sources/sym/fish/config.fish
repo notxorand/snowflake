@@ -60,6 +60,8 @@ alias downloads="cd ~/Downloads"
 alias files="cd ~/Documents/files"
 alias xx="exit"
 
+alias asem="fish ~/snowflake/sources/sym/fish/asem.fish"
+
 alias .rust="cd ~/Documents/rust"
 alias .rs=".rust"
 alias .zig="cd ~/Documents/zig"
