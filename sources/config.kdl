@@ -159,7 +159,7 @@ binds {
     Mod+Space hotkey-overlay-title="Launcher: dank" { spawn "dms" "ipc" "launcher" "toggle"; }
     Mod+N hotkey-overlay-title="Note pad: dank" { spawn "dms" "ipc" "notepad" "open"; }
     Mod+Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: dank" { spawn "dms" "ipc" "lock" "lock"; }
-    Mod+W hotkey-overlay-title="Open a Web Browser: zen" { spawn "zen"; }
+    Mod+W hotkey-overlay-title="Open a Web Browser: zen" { spawn "zen-beta"; }
     Mod+Z hotkey-overlay-title="Open a Code Editor: zed" { spawn "zeditor"; }
     Mod+E hotkey-overlay-title="Open a File Manager: nautilus" { spawn "nautilus" "--new-window"; }
     Mod+X hotkey-overlay-title="Open a Text Editor: gnome text editor" { spawn "gnome-text-editor" "--new-window"; }
