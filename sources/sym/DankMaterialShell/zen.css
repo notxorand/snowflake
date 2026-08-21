@@ -9,6 +9,17 @@
   --arrowpanel-background: #282828 !important;
   --sidebar-text-color: #ddc7a1 !important;
   --zen-main-browser-background: #1d2021 !important;
+  --zen-main-browser-background-toolbar: #1d2021 !important;
+}
+
+#zen-browser-background {
+  --zen-main-browser-background: #1d2021 !important;
+  --zen-background-opacity: 1 !important;
+}
+
+#zen-toolbar-background {
+  --zen-main-browser-background-toolbar: #1d2021 !important;
+  --zen-background-opacity: 1 !important;
 }
 
 .sidebar-placesTree {
@@ -91,4 +102,22 @@ toolbar .toolbarbutton-1 {
 
 #zen-appcontent-navbar-container {
   background-color: #1d2021 !important;
+}
+
+#PanelUI-menu-button .toolbarbutton-icon,
+#downloads-button .toolbarbutton-icon,
+#unified-extensions-button .toolbarbutton-icon {
+  fill: #a8b665 !important;
+  color: #a8b665 !important;
+}
+
+#PanelUI-menu-button .toolbarbutton-badge-stack,
+#downloads-button .toolbarbutton-badge-stack,
+#unified-extensions-button .toolbarbutton-badge-stack {
+  fill: #a8b665 !important;
+  color: #a8b665 !important;
+}
+
+toolbar .toolbarbutton-1 > .toolbarbutton-icon {
+  fill: #a8b665 !important;
 }
