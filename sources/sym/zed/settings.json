@@ -10,40 +10,12 @@
   "cli_default_open_behavior": "new_window",
   "language_models": {
     "openai_compatible": {
-      "Groq": {
-        "api_url": "https://api.groq.com/openai/v1",
-        "available_models": [
-          {
-            "name": "groq/compound",
-            "max_tokens": 200000,
-            "max_output_tokens": 8192,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": false,
-              "chat_completions": true,
-            },
-          },
-          {
-            "name": "openai/gpt-oss-120b",
-            "max_tokens": 200000,
-            "max_output_tokens": 65536,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false,
-              "chat_completions": true,
-            },
-          },
-        ],
       },
-    },
   },
   "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry"
+    },
     "factory-droid": {
       "type": "registry",
     },
@@ -70,9 +42,6 @@
     "gemini": {
       "type": "registry",
     },
-    "github-copilot": {
-      "type": "registry",
-    },
   },
   "context_servers": {
     "some-mcp-server": {
@@ -92,10 +61,6 @@
     "provider": "zed",
     "disabled_globs": [".env"],
     "mode": "subtle",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null,
-    },
   },
   "auto_update_extensions": {
     "charmed-icons": false,
@@ -120,7 +85,7 @@
       {
         "provider": "copilot_chat",
         "model": "gpt-5.3-codex",
-        "enable_thinking": false,
+        "enable_thinking": true,
       },
     ],
     "tool_permissions": {
@@ -132,9 +97,10 @@
     },
     "default_profile": "write",
     "default_model": {
+      "effort": "medium",
       "enable_thinking": true,
       "provider": "google",
-      "model": "gemini-2.5-flash",
+      "model": "gemini-3.5-flash",
     },
     "dock": "right",
     "button": false,
@@ -272,7 +238,7 @@
     "diagnostics": true,
   },
   "status_bar": {
-    "experimental.show": false,
+    "experimental.show": true,
   },
   "formatter": "auto",
   "languages": {
