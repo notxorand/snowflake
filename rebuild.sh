@@ -7,6 +7,8 @@ if [[ "$1" == "--update-all" ]]; then
     nix flake update
 elif [[ "$1" == "--update-latest" ]]; then
     nix flake update nixpkgs-latest
+    nix flake update quickshell
+    nix flake update zen-browser
     nix flake update zig-overlay
 fi
 

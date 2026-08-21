@@ -9,18 +9,23 @@ with pkgs;
 with inputs;
 [
   wget
-  pkgs-latest.zed-editor
+  pkgs-latest.zed-editor-fhs
   pkgs-latest.ghostty
   pkgs-latest.zls
   pkgs-latest.dms-shell
   pkgs-latest.matugen
-  pkgs-latest.amp-cli
-  pkgs-latest.codex-acp
-  pkgs-latest.opencode
   pkgs-latest.obsidian
-  pkgs-latest.swift
-  pkgs-latest.swiftPackages.swiftpm
+  # pkgs-latest.swift
+  # pkgs-latest.swiftPackages.swiftpm
   pkgs-latest.cloudflare-warp
+  # pkgs-latest.jetbrains.rust-rover
+  pkgs-latest.github-copilot-cli
+  pkgs-latest.go
+  pkgs-latest.herdr
+  hyperfine
+  pkgs.iw
+  pkgs.mdk4
+  ardour
   direnv
   gnupg
   pinentry
@@ -40,7 +45,6 @@ with inputs;
   wayland-pipewire-idle-inhibit
   gummi
   rustup
-  go
   fishMinimal
   localsend
   telegram-desktop
@@ -69,7 +73,7 @@ with inputs;
   gradience
   nodejs_24
   pnpm
-  texliveTeTeX
+  texlive.combined.scheme-full
   nasm
   gcc15
   glibc

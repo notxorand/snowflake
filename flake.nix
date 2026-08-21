@@ -11,11 +11,11 @@
     };
     quickshell = {
       url = "github:quickshell-mirror/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-latest";
     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-latest";
     };
     ignis = {
       url = "github:ignis-sh/ignis";
@@ -23,7 +23,7 @@
     };
     zig-overlay = {
       url = "github:mitchellh/zig-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-latest";
     };
     vicinae.url = "github:vicinaehq/vicinae";
     zed-editor.url = "github:zed-industries/zed";
